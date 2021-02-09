@@ -61,6 +61,7 @@ const useStyles = makeStyles(() => ({
         textAlign: 'center',
         padding: '0 10px 5px',
         overflowWrap: 'break-word',
+        padding: '0',
 
         name: {
             fontWeight: '900',
