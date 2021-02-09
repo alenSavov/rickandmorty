@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { createMuiTheme, ThemeProvider, useTheme } from '@material-ui/core/styles';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import Nav from './components/Nav';
+import Header from './components/Header';
 
 import Search from './components/Search';
 import Login from './components/Login';
@@ -49,8 +50,9 @@ function App() {
   }
 
   return (
+    <>
     <Router>
-    <Nav />
+    <Header />
     <Switch>
     <Route path="/" exact component={AllEpisodes} />
           <Route path="/login" component={Login} />
@@ -59,6 +61,7 @@ function App() {
           <Route path="/allepisodes/:id" component={EpisodeDetails} />
     </Switch>
     </Router>
+    </>
   );
 }
 
