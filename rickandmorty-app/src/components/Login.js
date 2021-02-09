@@ -43,6 +43,8 @@ const useStyles = makeStyles(() => ({
         margin: '47px 0 0 0',
         textTransform: 'uppercase',
         color: '#f50057',
+        fontFamily: 'Hanalei, cursive',
+        fontSize: '3rem',
     },
     form: {
         width: '60%',
