@@ -8,7 +8,7 @@ import { useHistory } from "react-router";
 
 import './Header.css';
 import { SidebarData } from './SidebarData';
-import { logout } from '../utils/oauth';
+import { logout, isLogin } from '../utils/oauth';
 
 const useStyles = makeStyles(() => ({
   navbar: {
@@ -110,12 +110,14 @@ function Header() {
           <Link to='#' className={classes.menuBars}>
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
+
           <Button className={classes.logoutButton}
             variant="contained"
             color="secondary"
             onClick={handleLogout}>
             LOGOUT
           </Button>
+
         </div>
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
           <ul className={classes.navMenuItems} onClick={showSidebar}>

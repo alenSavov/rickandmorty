@@ -31,54 +31,6 @@ function App() {
 
   }, []);
 
-  // const handleSubmit = details => {
-  //   if (details.name === localStorage.getItem("user")) {
-  //     console.log("Logged in");
-  //     setUser({
-  //       name: details.name
-  //     });
-
-  //     localStorage.setItem("user", details.name)
-  //   } else {
-  //     setError("Created new name");
-
-  //     setUser({
-  //       name: details.name
-  //     });
-
-  //     localStorage.setItem("user", details.name)
-  //   }
-  // }
-
-  // const handleLogout = () => {
-  //   console.log("Logout");
-
-  //   setUser({});
-  //   localStorage.clear();
-  // }
-
-  // const fakeAuth = {
-  //   isAuthenticated: true,
-  //   authenticate(cb) {
-  //     this.isAuthenticated = true
-  //     setTimeout(cb, 100)
-  //   },
-  //   signout(cb) {
-  //     this.isAuthenticated = false
-  //     setTimeout(cb, 100)
-  //   }
-  // }
-
-  // const PrivateRoute = ({ component: Component, ...rest }) => (
-  //   <Route {...rest} render={(props) => (
-  //     fakeAuth.isAuthenticated === true
-  //       ? <Component {...props} />
-  //       : <Redirect to='/login' />
-  //   )} />
-  // )
-
-
-
   return (
     <>
       <Router>

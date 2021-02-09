@@ -83,10 +83,21 @@ const useStyles = makeStyles(() => ({
 function Login() {
     const classes = useStyles();
     let history = useHistory();
-    const [details, setDetails] = useState({ name: "" });
+    const [input, setInput] = useState({ name: "" });
 
     const submitHandler = e => {
         e.preventDefault();
+
+        const username = e.target[0].value;
+
+        if (!username) {
+            return;
+        }
+
+        const letters = /^[A-Za-z]+$/;
+        if (!username.match(letters)) {
+
+        }
 
         login();
         history.push({
@@ -94,10 +105,15 @@ function Login() {
         });
     }
 
+
+    const handleValidation = e => {
+        console.log('work');
+    }
+
     return (
         <div className={classes.loginWrapper}>
             <div className={classes.loginBox}>
-                <div class={classes.userBox}>
+                <div className={classes.userBox}>
                     <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" />
                 </div>
                 <h1 className={classes.title}>Login</h1>
@@ -106,25 +122,10 @@ function Login() {
                     <input className={classes.button}
                         type="submit"
                         name="username"
-                        placeholder="Login">
-                    </input>
+                        placeholder="Login" />
                 </form>
             </div>
         </div>
-
-        // <form onSubmit={submitHandler}>
-        //     <div className="form-inner">
-        //         <h2>Login</h2>
-        //         {(error !== "") ? (<div className="error">{error}</div>) : ""}
-        //         <div className="form-group">
-        //             <label htmlFor="name">Name:</label>
-        //             <input type="text" name="name" id="name" 
-        //             onChange={e => setDetails({ ...details, name: e.target.value })} 
-        //             value={details.name} />
-        //         </div>
-        //         <input type="submit" value="Login" />
-        //     </div>
-        // </form>
     )
 }
 
