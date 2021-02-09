@@ -15,16 +15,16 @@ const useStyles = makeStyles(() => ({
     episode: {
         display: 'flex',
         flexWrap: 'wrap',
+        alignItems: 'center',
+        justifyContent: 'center',
         width: '250px',
         height: '120px',
-        alignItems: 'center',
         borderRadius: '10px',
         boxShadow: '5px 5px 30px black',
         margin: '10px',
         background: '#0c2b5e',
         background: 'linear-gradient(to left, #0c2b5e, #173c77)',
         background: 'linear-gradient(to left, #0c2b5e, #173c77)',
-        justifyContent: 'center',
         textDecoration: 'none',
         padding: '15px',
 
