@@ -8,12 +8,6 @@ const useStyles = makeStyles(() => ({
         minHeight: '93vh',
     },
 
-    searchBar: {
-        boxShadow: '2px 15px 29px 13px rgba(0,0,0,0.75)',
-        webkitBoxShadow: '2px 15px 29px 13px rgba(0,0,0,0.75)',
-        mozBoxShadow: '2px 15px 29px 13px rgba(0,0,0,0.75)',
-    },
-
     listOfCards: {
         display: 'flex',
         flexWrap: 'wrap',

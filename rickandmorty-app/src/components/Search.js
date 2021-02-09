@@ -8,7 +8,6 @@ const useStyles = makeStyles(() => ({
     searchWrapper: {
         background: "linear-gradient(to right, #26D0CE, #1A2980)",
         height: "100%",
-        minHeight: '93vh',
     },
 
     searchBar: {
@@ -16,6 +15,7 @@ const useStyles = makeStyles(() => ({
         webkitBoxShadow: '2px 15px 29px 13px rgba(0,0,0,0.75)',
         mozBoxShadow: '2px 15px 29px 13px rgba(0,0,0,0.75)',
         width: '100%',
+        overflow: 'hidden',
 
         '& input': {
             width: '100%',
@@ -26,8 +26,7 @@ const useStyles = makeStyles(() => ({
             '&:focus': {
                 outline: 'none',
             },
-        }
-      
+        }      
     },
 
 }));

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { createMuiTheme, ThemeProvider, useTheme } from '@material-ui/core/styles';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import './App.css';
 
 import Header from './components/Header';
 
@@ -52,6 +53,7 @@ function App() {
     <>
     <Router>
     <Header />
+    <div class="root">
     <Switch>
     <Route path="/" exact component={AllEpisodes} />
           <Route path="/login" component={Login} />
@@ -59,6 +61,7 @@ function App() {
           <Route path="/allepisodes/" exact component={AllEpisodes} />
           <Route path="/allepisodes/:id" component={EpisodeDetails} />
     </Switch>
+    </div>
     </Router>
     </>
   );
