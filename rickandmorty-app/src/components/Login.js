@@ -80,7 +80,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 
-function Login({ handleSubmit, error }) {
+function Login() {
     const classes = useStyles();
     let history = useHistory();
     const [details, setDetails] = useState({ name: "" });

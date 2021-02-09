@@ -26,7 +26,7 @@ const useStyles = makeStyles(() => ({
             '&:focus': {
                 outline: 'none',
             },
-        }      
+        }
     },
 
 }));
@@ -53,21 +53,15 @@ const Search = (props) => {
 
     return (
         <div className={classes.searchWrapper}>
-            {/* <SearchBar
-                className={classes.searchBar}
-                onChange={(e) => fetchData(e)}
-                placeholder="Search by name"
-            /> */}
-
-        <div>
-            <form className={classes.searchBar} 
-            onSubmit={e => e.preventDefault()}>
-            <input type="text" 
-            className={classes.searchBox} 
-            placeholder="Search by name"
-            onChange={(e) => fetchData(e.target.value)}/>
-            </form>
-          </div>
+            <div>
+                <form className={classes.searchBar}
+                    onSubmit={e => e.preventDefault()}>
+                    <input type="text"
+                        className={classes.searchBox}
+                        placeholder="Search by name"
+                        onChange={(e) => fetchData(e.target.value)} />
+                </form>
+            </div>
 
             <CharacterCard character={character} />
         </div>

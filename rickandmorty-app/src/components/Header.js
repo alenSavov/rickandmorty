@@ -1,28 +1,30 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { makeStyles } from "@material-ui/core";
+import { makeStyles, Button } from "@material-ui/core";
 import { IconContext } from 'react-icons';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
+import { useHistory } from "react-router";
 
-import { SidebarData } from './SidebarData';
 import './Header.css';
+import { SidebarData } from './SidebarData';
+import { logout } from '../utils/oauth';
 
 const useStyles = makeStyles(() => ({
   navbar: {
     backgroundColor: '#060b26',
     height: '80px',
     display: 'flex',
-    justifyContent: 'start',
+    justifyContent: 'space-between;',
     alignItems: 'center',
   },
-  
+
   menuBars: {
     marginLeft: '2rem',
     fontSize: '2rem',
     background: 'none',
   },
-  
+
   navMenu: {
     backgroundColor: '#060b26',
     width: '250px',
@@ -34,12 +36,12 @@ const useStyles = makeStyles(() => ({
     left: '-100%',
     transition: '850ms',
   },
-  
-  navMenuActive: {  
-      left: '0',
-      transition: '350ms',    
+
+  navMenuActive: {
+    left: '0',
+    transition: '350ms',
   },
-  
+
   navText: {
     display: 'flex',
     justifyContent: 'start',
@@ -48,27 +50,27 @@ const useStyles = makeStyles(() => ({
     listStyle: 'none',
     height: '60px',
   },
-  
-  navTextA: {    
-      textDecoration: 'none',
-      color: '#f5f5f5',
-      fontSize: '18px',
-      width: '95%',
-      height: '100%',
-      display: 'flex',
-      alignItems: 'center',
-      padding: '0 16px',
-      borderRadius: '4px',
 
-      '& a:hover': {
-        backgroundColor: '#1a83ff',
-      }    
+  navTextA: {
+    textDecoration: 'none',
+    color: '#f5f5f5',
+    fontSize: '18px',
+    width: '95%',
+    height: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    padding: '0 16px',
+    borderRadius: '4px',
+
+    '& a:hover': {
+      backgroundColor: '#1a83ff',
+    }
   },
-  
+
   navMenuItems: {
     width: '100%',
   },
-  
+
   navbartoggle: {
     backgroundColor: '#060b26',
     width: '100%',
@@ -77,20 +79,30 @@ const useStyles = makeStyles(() => ({
     justifyContent: 'start',
     alignitems: 'center',
   },
-  
+
   span: {
     marginLeft: '16px',
   },
-
+  logoutButton: {
+    marginRight: '5%',
+  }
 }));
 
 
 function Header() {
   const [sidebar, setSidebar] = useState(false);
+  let history = useHistory();
 
   const showSidebar = () => setSidebar(!sidebar);
   const classes = useStyles();
-  
+
+  const handleLogout = () => {
+    logout();
+    history.push({
+      pathname: "/login"
+    });
+  }
+
   return (
     <>
       <IconContext.Provider value={{ color: '#fff' }}>
@@ -98,6 +110,12 @@ function Header() {
           <Link to='#' className={classes.menuBars}>
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
+          <Button className={classes.logoutButton}
+            variant="contained"
+            color="secondary"
+            onClick={handleLogout}>
+            LOGOUT
+          </Button>
         </div>
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
           <ul className={classes.navMenuItems} onClick={showSidebar}>

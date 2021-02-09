@@ -3,6 +3,9 @@ import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
 
+import { logout } from '../utils/oauth';
+
+
 export const SidebarData = [
   {
     title: 'Home',
@@ -21,5 +24,5 @@ export const SidebarData = [
     path: '/search',
     icon: <FaIcons.FaCartPlus />,
     cName: 'nav-text'
-  }
+  },
 ];
