@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FormControl, TextField, makeStyles, Typography } from '@material-ui/core';
-
+import { logout, isLogin, login } from '../utils/oauth';
+import { useHistory } from "react-router";
 
 const useStyles = makeStyles(() => ({
     loginWrapper: {
@@ -71,20 +72,26 @@ const useStyles = makeStyles(() => ({
             boxShadow: '0px 5px 31px 0px rgba(0,0,0,0.75)',
             cursor: 'pointer',
             transition: '0.2s',
-        }
+        },
+        '&:focus': {
+            outline: 'none',
+        },
     },
-
 }));
 
 
 function Login({ handleSubmit, error }) {
     const classes = useStyles();
+    let history = useHistory();
     const [details, setDetails] = useState({ name: "" });
 
     const submitHandler = e => {
         e.preventDefault();
 
-        handleSubmit(details);
+        login();
+        history.push({
+            pathname: "/allepisodes"
+        });
     }
 
     return (
@@ -94,9 +101,13 @@ function Login({ handleSubmit, error }) {
                     <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" />
                 </div>
                 <h1 className={classes.title}>Login</h1>
-                <form className={classes.form}>
+                <form className={classes.form} onSubmit={submitHandler}>
                     <TextField className={classes.input} color="secondary" label="username" />
-                    <input className={classes.button} type="submit" name="submit" value="Login"></input>
+                    <input className={classes.button}
+                        type="submit"
+                        name="username"
+                        placeholder="Login">
+                    </input>
                 </form>
             </div>
         </div>
