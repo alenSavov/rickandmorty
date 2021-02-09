@@ -65,10 +65,12 @@ const useStyles = makeStyles(() => ({
         padding: '10px 0',
         border: 'none',
         margin: '20px 0',
+        fontSize: '1.2rem',
 
         '&:hover': {
-            background: '#BA2674',
+            boxShadow: '0px 5px 31px 0px rgba(0,0,0,0.75)',
             cursor: 'pointer',
+            transition: '0.2s',
         }
     },
 
