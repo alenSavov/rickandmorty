@@ -12,6 +12,7 @@ const useStyles = makeStyles(() => ({
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'center',
+        margin: '33px 0',
     },
 
     userCard: {
