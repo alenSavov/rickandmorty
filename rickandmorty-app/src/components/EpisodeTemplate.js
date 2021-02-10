@@ -10,6 +10,7 @@ const useStyles = makeStyles(() => ({
         justifyContent: 'center',
         listStyleType: 'none',
         padding: '0',
+        margin: '0',
     },
     episode: {
         display: 'flex',
