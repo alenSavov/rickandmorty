@@ -8,12 +8,6 @@ import { logout } from '../utils/oauth';
 
 export const SidebarData = [
   {
-    title: 'Home',
-    path: '/',
-    icon: <AiIcons.AiFillHome />,
-    cName: 'nav-text'
-  },
-  {
     title: 'AllEpisodes',
     path: '/allepisodes',
     icon: <IoIcons.IoIosPaper />,

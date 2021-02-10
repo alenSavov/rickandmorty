@@ -44,7 +44,7 @@ const useStyles = makeStyles(() => ({
         margin: '47px 0 0 0',
         textTransform: 'uppercase',
         color: '#f50057',
-        fontFamily: 'Hanalei, cursive',
+        fontFamily: 'Indie Flower',
         fontSize: '3rem',
     },
     form: {
@@ -57,6 +57,7 @@ const useStyles = makeStyles(() => ({
 
         '& label': {
             color: '#f50057',
+            fontFamily: 'Indie Flower',
         }
     },
     button: {
@@ -67,6 +68,8 @@ const useStyles = makeStyles(() => ({
         border: 'none',
         margin: '20px 0',
         fontSize: '1.2rem',
+        fontFamily: 'Indie Flower',
+        fontWeight: '900',
 
         '&:hover': {
             boxShadow: '0px 5px 31px 0px rgba(0,0,0,0.75)',

@@ -59,6 +59,7 @@ const useStyles = makeStyles(() => ({
 
         name: {
             fontWeight: '900',
+            fontFamily: 'Indie Flower',
         }
     },
 }));

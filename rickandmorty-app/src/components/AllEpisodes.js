@@ -5,8 +5,13 @@ import axios from "axios";
 import "../../src/index.css";
 import EpisodeTemplate from './EpisodeTemplate';
 
-
 const useStyles = makeStyles(() => ({
+  title: {
+    fontFamily: 'Indie Flower',
+    fontSize: '2rem',
+    fontWeight: '900',
+    margin: '30px 0',
+  },
   pagination: {
     backgroundColor: 'linear-gradient(to right, #26D0CE, #1A2980)',
   },
@@ -17,6 +22,7 @@ const useStyles = makeStyles(() => ({
     borderRadius: '5px',
     margin: '15px 10px',
     transition: 'transform .2s',
+    fontWeight: 900,
 
     '&:hover': {
       transform: 'scale(1.5)',
@@ -26,7 +32,6 @@ const useStyles = makeStyles(() => ({
     }
   },
 }));
-
 
 function AllEpisodes() {
   const [episodes, setEpisodes] = useState([]);
@@ -44,7 +49,6 @@ function AllEpisodes() {
     }
 
     const result = await axios(baseUrl);
-
     const pageInfo = result.data.info
 
     setInfo({
@@ -60,9 +64,9 @@ function AllEpisodes() {
     fetchEpisodes(1)
   }, [])
 
-
   return (
     <>
+      <Typography className={classes.title}>All Episodes</Typography>
       <EpisodeTemplate episodes={episodes} />
       <div className={classes.pagination}>
         {

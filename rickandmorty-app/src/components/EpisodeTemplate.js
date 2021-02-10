@@ -40,9 +40,14 @@ const useStyles = makeStyles(() => ({
         fontWeight: '900',
         textDecoration: 'none',
         width: '100%',
+        fontFamily: 'Indie Flower',
+        fontWeight: '900',
+        fontSize: '1.3rem',
     },
     date: {
         color: '#7881bccf',
+        fontFamily: 'Indie Flower',
+        fontSize: '1.2rem',
     }
 }));
 
