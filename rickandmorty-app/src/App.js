@@ -11,7 +11,7 @@ import Header from './components/Header';
 import Search from './components/Search';
 import Login from './components/Login';
 import AllEpisodes from './components/AllEpisodes';
-import EpisodeDetails from './components/EpisodeDetails';
+import Episode from './components/Episode';
 import PublicRoute from './components/PublicRoute';
 import PrivateRoute from './components/PrivateRoute';
 
@@ -43,7 +43,7 @@ function App() {
             <PublicRoute restricted={true} path="/login" component={Login} />
             <PrivateRoute path="/search/" component={Search} />
             <PrivateRoute path="/allepisodes/" exact component={AllEpisodes} />
-            <PrivateRoute path="/allepisodes/:id" component={EpisodeDetails} />
+            <PrivateRoute path="/allepisodes/:id" component={Episode} />
           </Switch>
         </div>
       </Router>
