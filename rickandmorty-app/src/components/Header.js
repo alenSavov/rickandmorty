@@ -48,7 +48,7 @@ const useStyles = makeStyles(() => ({
     alignItems: 'center',
     padding: '8px 0px 8px 16px',
     listStyle: 'none',
-    height: '60px',
+    height: '60px',  
   },
 
   navTextA: {
@@ -63,7 +63,7 @@ const useStyles = makeStyles(() => ({
     borderRadius: '4px',
 
     '& a:hover': {
-      backgroundColor: '#1a83ff',
+      backgroundColor: '#000',
     }
   },
 
