@@ -89,14 +89,14 @@ function Login() {
         e.preventDefault();
 
         const username = e.target[0].value;
-
         if (!username) {
+            alert("Please, enter a username.");
             return;
         }
-
         const letters = /^[A-Za-z]+$/;
         if (!username.match(letters)) {
-
+            alert("Please, use only alphabet characters.");
+            return;
         }
 
         login();
