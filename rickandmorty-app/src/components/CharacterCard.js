@@ -74,35 +74,34 @@ const CharacterCard = ({ character, isExtended = false }) => {
 
     return (
         <div className={classes.listOfCards}>
-            {character && character
-                .map(d =>
-                    <div key={d.id} className={classes.userCard}>
-                        <div className={classes.userCardTop}>
-                            <img src={`${ d.image }`} />
-                        </div>
-                        <div className={classes.userCardBottom}>
-                            <Typography className={classes.name} color="secondary">
-                                {`${ d.name }`}
-                            </Typography>
-                            <Typography>
-                                {`${ d.status }`}
-                            </Typography>
-                            <Typography>
-                                {`${ d.species }`}
-                            </Typography>
-                            {isExtended ?
-                                <div>
-                                    <Typography>
-                                        <Link to={d.origin.url} className={classes.origin}>Origin</Link>
-                                    </Typography>
-                                    <Typography>
-                                        <Link to={d.location.url} className={classes.location}>Location</Link>
-                                    </Typography>
-                                </div>
-                                : ''}
-                        </div>
+            {character?.map(d =>
+                <div key={d.id} className={classes.userCard}>
+                    <div className={classes.userCardTop}>
+                        <img src={`${ d.image }`} />
                     </div>
-                )}
+                    <div className={classes.userCardBottom}>
+                        <Typography className={classes.name} color="secondary">
+                            {`${ d.name }`}
+                        </Typography>
+                        <Typography>
+                            {`${ d.status }`}
+                        </Typography>
+                        <Typography>
+                            {`${ d.species }`}
+                        </Typography>
+                        {isExtended ?
+                            <div>
+                                <Typography>
+                                    <Link to={d.origin.url} className={classes.origin}>Origin</Link>
+                                </Typography>
+                                <Typography>
+                                    <Link to={d.location.url} className={classes.location}>Location</Link>
+                                </Typography>
+                            </div>
+                            : ''}
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

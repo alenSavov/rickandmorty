@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { createMuiTheme, ThemeProvider, useTheme } from '@material-ui/core/styles';
+import { makeStyles, Typography } from "@material-ui/core";
+
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link,
-  Redirect,
-  withRouter
 } from 'react-router-dom';
 import './App.css';
 
@@ -18,9 +15,14 @@ import EpisodeDetails from './components/EpisodeDetails';
 import PublicRoute from './components/PublicRoute';
 import PrivateRoute from './components/PrivateRoute';
 
+const useStyles = makeStyles(() => ({
+}));
+
 function App() {
   const [user, setUser] = useState({ name: "" });
   const [error, setError] = useState("");
+
+  const classes = useStyles();
 
   useEffect(() => {
     const loggedInUser = localStorage.getItem("user");
@@ -35,7 +37,7 @@ function App() {
     <>
       <Router>
         <Header />
-        <div class="root">
+        <div className={classes.root}>
           <Switch>
             <PrivateRoute path="/" exact component={AllEpisodes} />
             <PublicRoute restricted={true} path="/login" component={Login} />
