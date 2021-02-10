@@ -36,13 +36,13 @@ const useStyles = makeStyles(() => ({
             height: '120px',
             margin: '8px 0 0 0',
             borderRadius: '50%',
-            border: '4px solid white',
+            border: '4px solid #FFF',
             objectFit: 'cover',
         }
     },
 
     userCardTop: {
-        height: '52%',
+        height: '45%',
         width: '100%',
         overflow: 'hidden',
         textAlign: 'center',
@@ -59,14 +59,26 @@ const useStyles = makeStyles(() => ({
         overflowWrap: 'break-word',
         padding: '0',
 
-        name: {
-            fontWeight: '900',
-            fontFamily: 'Indie Flower',
-        },
-        location: {
-            color: '#7881bccf',
+    },
+    name: {
+        fontWeight: '900',
+        fontSize: '1.2rem',
+        fontFamily: 'Indie Flower',
+    },
+    location: {
+        color: '#7881bccf',
+        textDecoration: 'none',
+        '&:hover': {
+            color: '#f50057',
         }
     },
+    origin: {
+        color: '#7881bccf',
+        textDecoration: 'none',
+        '&:hover': {
+            color: '#f50057',
+        }
+    }
 }));
 
 const CharacterCard = ({ character, isExtended = false }) => {
