@@ -4,6 +4,7 @@ import axios from "axios";
 
 import "../../src/index.css";
 import EpisodeTemplate from './EpisodeTemplate';
+import Pagination from './Pagination';
 
 const useStyles = makeStyles(() => ({
   title: {
@@ -11,25 +12,6 @@ const useStyles = makeStyles(() => ({
     fontSize: '2rem',
     fontWeight: '900',
     margin: '30px 0',
-  },
-  pagination: {
-    backgroundColor: 'linear-gradient(to right, #26D0CE, #1A2980)',
-  },
-  btn: {
-    background: '#f50057',
-    border: 'none',
-    padding: '10px 15px',
-    borderRadius: '5px',
-    margin: '15px 10px',
-    transition: 'transform .2s',
-    fontWeight: 900,
-
-    '&:hover': {
-      transform: 'scale(1.5)',
-    },
-    '&:focus': {
-      outline: 'none',
-    }
   },
 }));
 
@@ -68,31 +50,7 @@ function AllEpisodes() {
     <>
       <Typography className={classes.title}>All Episodes</Typography>
       <EpisodeTemplate episodes={episodes} />
-      <div className={classes.pagination}>
-        {
-          info.prev ? (
-            <button className={classes.btn} type="button" onClick={() => fetchEpisodes(info.prev)}>
-              { info.prev}
-            </button>
-          ) : (
-              <React.Fragment />
-            )
-        }
-
-        <button className={classes.btn} type="button">
-          {info.current}
-        </button>
-
-        {
-          info.next ? (
-            <button className={classes.btn} type="button" onClick={() => fetchEpisodes(info.next)}>
-              { info.next}
-            </button>
-          ) : (
-              <React.Fragment />
-            )
-        }
-      </div>
+      <Pagination fetchData={fetchEpisodes} info={info} />
     </>
   )
 }
