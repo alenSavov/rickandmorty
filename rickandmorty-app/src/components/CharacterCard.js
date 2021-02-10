@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles, Typography } from "@material-ui/core";
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(() => ({
     searchWrapper: {
@@ -61,11 +62,14 @@ const useStyles = makeStyles(() => ({
         name: {
             fontWeight: '900',
             fontFamily: 'Indie Flower',
+        },
+        location: {
+            color: '#7881bccf',
         }
     },
 }));
 
-const CharacterCard = ({ character }) => {
+const CharacterCard = ({ character, isExtended = false }) => {
     const classes = useStyles();
 
     return (
@@ -81,14 +85,21 @@ const CharacterCard = ({ character }) => {
                                 {`${ d.name }`}
                             </Typography>
                             <Typography>
-                                {`${ d.species }`}
-                            </Typography>
-                            <Typography>
-                                {`${ d.gender }`}
-                            </Typography>
-                            <Typography>
                                 {`${ d.status }`}
                             </Typography>
+                            <Typography>
+                                {`${ d.species }`}
+                            </Typography>
+                            {isExtended ?
+                                <div>
+                                    <Typography>
+                                        <Link to={d.origin.url} className={classes.origin}>Origin</Link>
+                                    </Typography>
+                                    <Typography>
+                                        <Link to={d.location.url} className={classes.location}>Location</Link>
+                                    </Typography>
+                                </div>
+                                : ''}
                         </div>
                     </div>
                 )}

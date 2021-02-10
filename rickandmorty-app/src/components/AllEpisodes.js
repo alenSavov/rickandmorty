@@ -22,10 +22,7 @@ function AllEpisodes() {
   const classes = useStyles();
 
   const fetchEpisodes = async (pageNumber) => {
-    setIsLoading(true);
-
     let baseUrl = 'https://rickandmortyapi.com/api/episode';
-
     if (pageNumber) {
       baseUrl += `/?page=${ pageNumber }`
     }
