@@ -86,11 +86,15 @@ const useStyles = makeStyles(() => ({
         '&:hover': {
             color: '#f50057',
         }
+    },
+    alive: {
+        color: '#03ea03',
     }
 }));
 
 const CharacterCard = ({ character, isExtended = false }) => {
     const classes = useStyles();
+    const isAlive = 'Alive';
 
     return (
         <>
@@ -105,7 +109,7 @@ const CharacterCard = ({ character, isExtended = false }) => {
                             <Typography className={classes.name} color="secondary">
                                 {`${ d.name }`}
                             </Typography>
-                            <Typography>
+                            <Typography className={((d.status === isAlive) ? classes.alive : '')}>
                                 {`${ d.status }`}
                             </Typography>
                             <Typography>
