@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { ThemeProvider } from '@material-ui/core';
 import { makeStyles, Typography } from "@material-ui/core";
+import theme, { defaultStyles } from './helpers/theme';
 
 import {
   BrowserRouter as Router,
@@ -37,20 +39,22 @@ function App() {
 
   return (
     <>
-      <Router>
-        <PrivateRoute component={Header} />
-        <div className={classes.root}>
-          <Switch>
-            <PrivateRoute path="/" exact component={AllEpisodes} />
-            <PublicRoute restricted={true} path="/login" component={Login} />
-            <PrivateRoute path="/search/" component={Search} />
-            <PrivateRoute path="/allepisodes/" exact component={AllEpisodes} />
-            <PrivateRoute path="/allepisodes/:id" exact component={Episode} />
-            <PrivateRoute path="/location/" ecaxt component={Location} />
-            <PrivateRoute path="/location/:id" ecaxt component={Location} />
-          </Switch>
-        </div>
-      </Router>
+      <ThemeProvider theme={theme({})}>
+        <Router>
+          <PrivateRoute component={Header} />
+          <div className={classes.root}>
+            <Switch>
+              <PrivateRoute path="/" exact component={AllEpisodes} />
+              <PublicRoute restricted={true} path="/login" component={Login} />
+              <PrivateRoute path="/search/" component={Search} />
+              <PrivateRoute path="/allepisodes/" exact component={AllEpisodes} />
+              <PrivateRoute path="/allepisodes/:id" exact component={Episode} />
+              <PrivateRoute path="/location/" ecaxt component={Location} />
+              <PrivateRoute path="/location/:id" ecaxt component={Location} />
+            </Switch>
+          </div>
+        </Router>
+      </ThemeProvider>
     </>
   );
 }
