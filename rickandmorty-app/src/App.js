@@ -36,7 +36,8 @@ function App() {
   return (
     <>
       <Router>
-        <Header />
+        {/* <Header /> */}
+        <PrivateRoute component={Header} />
         <div className={classes.root}>
           <Switch>
             <PrivateRoute path="/" exact component={AllEpisodes} />

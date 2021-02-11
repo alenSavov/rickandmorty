@@ -8,6 +8,7 @@ const useStyles = makeStyles(() => ({
         background: "linear-gradient(bottom,#0250c5,#d43f8d)",
         height: "100%",
         minHeight: '91.1vh',
+        height: '100vh',
         display: 'flex',
         flexWrap: 'wrap',
         alignItems: 'center',
