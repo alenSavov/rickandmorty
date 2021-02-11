@@ -100,6 +100,12 @@ const CharacterCard = ({ character, isExtended = false }) => {
     const extractId = (url) => {
         return url.split('/')[5];
     }
+    const isOriginExist = (origin) => {
+        if (origin === '') {
+            return false;
+        }
+        return true;
+    }
 
     return (
         <>
@@ -122,9 +128,12 @@ const CharacterCard = ({ character, isExtended = false }) => {
                             </Typography>
                             {isExtended ?
                                 <div>
-                                    <Typography>
-                                        <Link to={d.origin.url} className={classes.origin}>Origin</Link>
-                                    </Typography>
+                                    {(isOriginExist(d.origin.url))?
+                                        <Typography>
+                                        <Link to={`/location/${extractId(d.origin.url)}`} className={classes.origin}>Origin</Link>
+                                         </Typography>
+                                        : 'No origin data'
+                                    }
                                     <Typography>
                                         <Link to={`/location/${extractId(d.location.url)}`} className={classes.location}>Location</Link>
                                     </Typography>

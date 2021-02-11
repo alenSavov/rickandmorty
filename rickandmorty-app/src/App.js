@@ -38,7 +38,6 @@ function App() {
   return (
     <>
       <Router>
-        {/* <Header /> */}
         <PrivateRoute component={Header} />
         <div className={classes.root}>
           <Switch>

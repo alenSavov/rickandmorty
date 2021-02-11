@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { makeStyles, Typography } from "@material-ui/core";
 
 import CharacterCard from './CharacterCard';
-import locationImage from './../assets/location-image.png';
+import locationImage from './../assets/location-image-2.png';
 
 const useStyles = makeStyles(() => ({
     title: {
@@ -21,7 +21,7 @@ const useStyles = makeStyles(() => ({
         width: '100%',
     },
     content: {
-        background: 'rgba(0, 0, 0, 0.4)',
+        background: 'rgba(0, 0, 0, 0.7)',
         padding: '140px 100px',
         boxShadow: '0px 25px 45px 0px rgba(0,0,0,0.75)',
 
@@ -41,6 +41,9 @@ const useStyles = makeStyles(() => ({
     },
     episode: {
         color: '#f50057',
+        textTransform: 'uppercase',
+        fontFamily: 'Indie Flower',
+    fontSize: '1.3rem',
     }
 }));
 
@@ -52,6 +55,7 @@ function Location() {
     const [location, setLocation] = useState([]);
     const [residentsId, setResidentsId] = useState([]);
     const [residents, setResidents] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
     const classes = useStyles();
 
     const fetchLocation = async () => {
@@ -67,7 +71,7 @@ function Location() {
 
         const residentsIdCollection = [];
         location.residents.forEach(e => {
-            residentsIdCollection.push(e.split('/')[5]);
+                residentsIdCollection.push(e.split('/')[5]);
         });
         console.log(`residentsIdCollection ${residentsIdCollection}`);
         setResidentsId(residentsIdCollection);
@@ -78,12 +82,13 @@ function Location() {
         const fetchResident = await fetch(`https://rickandmortyapi.com/api/character/${residentsIdCollection}`);
         const residents = await fetchResident.json();
         setResidents(residents);
-
+        setIsLoading(false);
     }
 
     return (
          <>
             {
+                (!isLoading) ? 
                 <>
                  <div className={classes.locationWrapper}>
                         <div className={classes.content}>
@@ -93,9 +98,10 @@ function Location() {
                             <Typography className={classes.episode}>{location.type}</Typography>
                             <Typography className={classes.episode}>{location.dimension}</Typography>
                         </div>
-                        <CharacterCard character={residents} isExtended={true}/>
+                        <CharacterCard character={residents}/>
                     </div>
                 </>
+                 : <h1 className={classes.loading}>Loading...</h1>
             }
         </>
     )
