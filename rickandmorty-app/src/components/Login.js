@@ -54,7 +54,7 @@ const useStyles = makeStyles(() => ({
     },
     input: {
         width: '100%',
-        color: '#FFF',
+        color: '#f50057',
 
         '& label': {
             color: '#f50057',
@@ -83,7 +83,6 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-
 function Login() {
     const classes = useStyles();
     let history = useHistory();
@@ -109,11 +108,6 @@ function Login() {
         });
     }
 
-
-    const handleValidation = e => {
-        console.log('work');
-    }
-
     return (
         <div className={classes.loginWrapper}>
             <div className={classes.loginBox}>
@@ -122,7 +116,13 @@ function Login() {
                 </div>
                 <h1 className={classes.title}>Login</h1>
                 <form className={classes.form} onSubmit={submitHandler}>
-                    <TextField className={classes.input} color="secondary" label="username" />
+                    <TextField 
+                    className={classes.input} 
+                    color="secondary"
+                    label="username" 
+                    InputProps={{
+                        className: classes.input
+                      }}/>
                     <input className={classes.button}
                         type="submit"
                         name="username"
