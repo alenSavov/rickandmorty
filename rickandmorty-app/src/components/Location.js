@@ -59,25 +59,18 @@ function Location() {
     const classes = useStyles();
 
     const fetchLocation = async () => {
-        console.log('fetchLocation');
         const id = window.location.pathname.split('/')[2];
 
         const fetchLocation = await fetch(`https://rickandmortyapi.com/api/location/${id}`);
         const location = await fetchLocation.json();
         setLocation(location);
-        console.log('LOCATION');
-        console.log(location);
 
 
         const residentsIdCollection = [];
         location.residents.forEach(e => {
                 residentsIdCollection.push(e.split('/')[5]);
         });
-        console.log(`residentsIdCollection ${residentsIdCollection}`);
-        setResidentsId(residentsIdCollection);
-        console.log('residents id');
-        console.log(residentsId);
-    
+        setResidentsId(residentsIdCollection);    
     
         const fetchResident = await fetch(`https://rickandmortyapi.com/api/character/${residentsIdCollection}`);
         const residents = await fetchResident.json();
