@@ -10,10 +10,12 @@ import './App.css';
 import Header from './components/Header';
 import Search from './components/Search';
 import Login from './components/Login';
-import AllEpisodes from './components/AllEpisodes';
-import Episode from './components/Episode';
 import PublicRoute from './components/PublicRoute';
 import PrivateRoute from './components/PrivateRoute';
+
+import AllEpisodes from './components/AllEpisodes';
+import Episode from './components/Episode';
+import Location from './components/Location';
 
 const useStyles = makeStyles(() => ({
 }));
@@ -44,7 +46,9 @@ function App() {
             <PublicRoute restricted={true} path="/login" component={Login} />
             <PrivateRoute path="/search/" component={Search} />
             <PrivateRoute path="/allepisodes/" exact component={AllEpisodes} />
-            <PrivateRoute path="/allepisodes/:id" component={Episode} />
+            <PrivateRoute path="/allepisodes/:id" exact component={Episode} />
+            <PrivateRoute path="/location/" ecaxt component={Location} />
+            <PrivateRoute path="/location/:id" ecaxt component={Location} />
           </Switch>
         </div>
       </Router>

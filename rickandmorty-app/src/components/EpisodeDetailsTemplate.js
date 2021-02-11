@@ -21,7 +21,7 @@ const useStyles = makeStyles(() => ({
     },
     content: {
         background: 'rgba(0, 0, 0, 0.4)',
-        padding: '50px 100px',
+        padding: '140px 100px',
         boxShadow: '0px 25px 45px 0px rgba(0,0,0,0.75)',
 
     },

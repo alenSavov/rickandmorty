@@ -34,7 +34,6 @@ function Episode({ match }) {
         const fetchEpisode = await fetch(`https://rickandmortyapi.com/api/episode/${ match.params.id }`);
         const episode = await fetchEpisode.json();
         setEpisode(episode);
-        console.log(episode);
 
         const characterIdCollection = [];
         episode.characters.forEach(e => {
@@ -42,7 +41,6 @@ function Episode({ match }) {
         });
 
         setCharactersId(characterIdCollection);
-
     }
 
     const fetchCharacters = async () => {
@@ -52,7 +50,6 @@ function Episode({ match }) {
         setCharacters(characters.results);
     }
 
-    console.log(characters);
     return (
         <>           
             <div className={classes.characterWrapper}>

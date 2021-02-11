@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from "react-router";
 import { FormControl, TextField, makeStyles, Typography } from '@material-ui/core';
 
-import { logout, isLogin, login } from '../utils/oauth';
+import { logout, isLoggedIn, login } from '../utils/oauth';
 
 const useStyles = makeStyles(() => ({
     loginWrapper: {

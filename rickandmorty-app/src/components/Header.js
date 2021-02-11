@@ -7,7 +7,7 @@ import { useHistory } from "react-router";
 import { makeStyles, Button } from "@material-ui/core";
 
 import { SidebarData } from './SidebarData';
-import { logout, isLogin } from '../utils/oauth';
+import { logout, isLoggedIn } from '../utils/oauth';
 
 const useStyles = makeStyles(() => ({
   navbar: {

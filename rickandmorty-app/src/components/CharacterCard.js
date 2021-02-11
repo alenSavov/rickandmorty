@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { makeStyles, Typography } from "@material-ui/core";
 
+import Location from './Location';
+
 const useStyles = makeStyles(() => ({
     title: {
         color: '#f50057',
@@ -95,6 +97,9 @@ const useStyles = makeStyles(() => ({
 const CharacterCard = ({ character, isExtended = false }) => {
     const classes = useStyles();
     const isAlive = 'Alive';
+    const extractId = (url) => {
+        return url.split('/')[5];
+    }
 
     return (
         <>
@@ -121,7 +126,7 @@ const CharacterCard = ({ character, isExtended = false }) => {
                                         <Link to={d.origin.url} className={classes.origin}>Origin</Link>
                                     </Typography>
                                     <Typography>
-                                        <Link to={d.location.url} className={classes.location}>Location</Link>
+                                        <Link to={`/location/${extractId(d.location.url)}`} className={classes.location}>Location</Link>
                                     </Typography>
                                 </div>
                                 : ''}
