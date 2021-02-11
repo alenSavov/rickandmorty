@@ -1,6 +1,6 @@
+import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { makeStyles, Typography } from "@material-ui/core";
-import axios from "axios";
 
 import "../../src/index.css";
 import EpisodeTemplate from './EpisodeTemplate';
@@ -14,6 +14,14 @@ const useStyles = makeStyles(() => ({
     margin: '30px 0',
     color: '#f50057',
   },
+  loading: {
+    fontFamily: 'Indie Flower',
+    fontSize: '2rem',
+    fontWeight: '900',
+    margin: '30px 0',
+    color: '#f50057',
+    textTransform: 'uppercase',
+  }
 }));
 
 function AllEpisodes() {
@@ -46,9 +54,15 @@ function AllEpisodes() {
 
   return (
     <>
-      <Typography className={classes.title}>All Episodes</Typography>
-      <EpisodeTemplate episodes={episodes} />
-      <Pagination fetchData={fetchEpisodes} info={info} />
+    {
+    (!isLoading) ? 
+      <>
+        <Typography className={classes.title}>All Episodes</Typography>
+        <EpisodeTemplate episodes={episodes} />
+        <Pagination fetchData={fetchEpisodes} info={info} />
+      </>
+    : <h1 className={classes.loading}>Loading...</h1>
+    }
     </>
   )
 }

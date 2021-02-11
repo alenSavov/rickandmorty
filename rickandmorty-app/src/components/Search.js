@@ -28,12 +28,21 @@ const useStyles = makeStyles(() => ({
             },
         }
     },
+    loading: {
+        fontFamily: 'Indie Flower',
+        fontSize: '2rem',
+        fontWeight: '900',
+        margin: '30px 0',
+        color: '#f50057',
+        textTransform: 'uppercase',
+      },
 
 }));
 
 const Search = (props) => {
     const [input, setInput] = useState('');
     const [character, setCharacter] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         fetchData()
@@ -47,6 +56,7 @@ const Search = (props) => {
 
         const searchedCharacter = await res.json();
         setCharacter(searchedCharacter.results);
+        setIsLoading(false);
     }
 
     const classes = useStyles();
@@ -62,9 +72,11 @@ const Search = (props) => {
                         onChange={(e) => fetchData(e.target.value)} />
                 </form>
             </div>
-
-            <CharacterCard character={character} />
-        </div>
+            {(!isLoading)  
+             ? <CharacterCard character={character} />
+             : <h1 className={classes.loading}>Loading...</h1>
+            }
+            </div>
     );
 }
 

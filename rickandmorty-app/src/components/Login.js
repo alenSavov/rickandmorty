@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { FormControl, TextField, makeStyles, Typography } from '@material-ui/core';
-import { logout, isLogin, login } from '../utils/oauth';
 import { useHistory } from "react-router";
+import { FormControl, TextField, makeStyles, Typography } from '@material-ui/core';
+
+import { logout, isLogin, login } from '../utils/oauth';
 
 const useStyles = makeStyles(() => ({
     loginWrapper: {
@@ -96,8 +97,8 @@ function Login() {
             alert("Please, enter a username.");
             return;
         }
-        const letters = /^[A-Za-z]+$/;
-        if (!username.match(letters)) {
+        
+        if (!username.match(/^[A-Za-z]+$/)) {
             alert("Please, use only alphabet characters.");
             return;
         }
