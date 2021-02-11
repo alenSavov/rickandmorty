@@ -12,6 +12,7 @@ const useStyles = makeStyles(() => ({
     fontSize: '2rem',
     fontWeight: '900',
     margin: '30px 0',
+    color: '#f50057',
   },
 }));
 

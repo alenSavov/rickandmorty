@@ -6,7 +6,6 @@ import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import { useHistory } from "react-router";
 
-import './Header.css';
 import { SidebarData } from './SidebarData';
 import { logout, isLogin } from '../utils/oauth';
 
@@ -18,13 +17,11 @@ const useStyles = makeStyles(() => ({
     justifyContent: 'space-between;',
     alignItems: 'center',
   },
-
   menuBars: {
     marginLeft: '2rem',
     fontSize: '2rem',
-    background: 'none',
+    background: 'none',    
   },
-
   navMenu: {
     backgroundColor: '#060b26',
     width: '250px',
@@ -36,12 +33,18 @@ const useStyles = makeStyles(() => ({
     left: '-100%',
     transition: '850ms',
   },
-
   navMenuActive: {
+    backgroundColor: '#060b26',
+    width: '250px',
+    height: '100vh',
+    display: 'flex',
+    justifyContent: 'center',
+    position: 'fixed',
+    top: '0',
     left: '0',
     transition: '350ms',
+    zIndex: '10',
   },
-
   navText: {
     display: 'flex',
     justifyContent: 'start',
@@ -49,8 +52,11 @@ const useStyles = makeStyles(() => ({
     padding: '8px 0px 8px 16px',
     listStyle: 'none',
     height: '60px',
-  },
 
+    '&:hover': {
+      backgroundColor: '#f50057',
+    }
+  },
   navTextA: {
     textDecoration: 'none',
     color: '#f5f5f5',
@@ -66,12 +72,11 @@ const useStyles = makeStyles(() => ({
       backgroundColor: '#000',
     }
   },
-
   navMenuItems: {
     width: '100%',
+    padding: '0',
   },
-
-  navbartoggle: {
+  navbarToggle: {
     backgroundColor: '#060b26',
     width: '100%',
     height: '80px',
@@ -79,7 +84,6 @@ const useStyles = makeStyles(() => ({
     justifyContent: 'start',
     alignitems: 'center',
   },
-
   span: {
     marginLeft: '16px',
   },
@@ -121,7 +125,7 @@ function Header() {
           </Button>
 
         </div>
-        <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+        <nav className={sidebar ? classes.navMenuActive : classes.navMenu}>
           <ul className={classes.navMenuItems} onClick={showSidebar}>
             <li className={classes.navbarToggle}>
               <Link to='#' className={classes.menuBars}>
@@ -130,7 +134,7 @@ function Header() {
             </li>
             {SidebarData.map((item, index) => {
               return (
-                <li className={classes.navText} key={index} className={item.cName}>
+                <li className={classes.navText} key={index}>
                   <Link to={item.path} className={classes.navTextA}>
                     {item.icon}
                     <span className={classes.span}>{item.title}</span>
