@@ -6,7 +6,6 @@ import CharacterCard from './CharacterCard';
 
 const useStyles = makeStyles(() => ({
     searchWrapper: {
-        background: "linear-gradient(to right, #26D0CE, #1A2980)",
         height: "100%",
     },
 

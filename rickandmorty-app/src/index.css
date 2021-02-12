@@ -9,7 +9,9 @@ body {
 
   text-align: center;
   height: 100vh;
-  background: linear-gradient(to right, #26d0ce, #1a2980);
+  /* background: linear-gradient(to right, #26d0ce, #1a2980); */
+  background: -webkit-linear-gradient(bottom, #0250c5, #d43f8d) center center
+    fixed;
   position: relative;
 }
 

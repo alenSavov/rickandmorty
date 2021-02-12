@@ -12,7 +12,7 @@ export const SidebarData = [
   {
     title: 'Search',
     path: '/search',
-    icon: <FaIcons.FaCartPlus />,
+    icon: <FaIcons.FaSearchPlus />,
     cName: 'nav-text'
   },
 ];

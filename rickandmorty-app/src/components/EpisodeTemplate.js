@@ -4,7 +4,6 @@ import { makeStyles, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles(() => ({
     allEpisodesWrapper: {
-        background: "linear-gradient(to right, #26D0CE, #1A2980)",
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'center',

@@ -9,10 +9,10 @@ import Pagination from './Pagination';
 const useStyles = makeStyles(() => ({
   title: {
     fontFamily: 'Indie Flower',
-    fontSize: '2rem',
+    fontSize: '2.7rem',
     fontWeight: '900',
     margin: '30px 0',
-    color: '#f50057',
+    color: '#163a75',
   },
   loading: {
     fontFamily: 'Indie Flower',
