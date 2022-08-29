@@ -1,6 +1,6 @@
-# Rick & Morty react application
+# Rick & Morty React Challenge
 
-# React Challenge - Description
+![Uploading r&m.gif…]()
 
 <p>Relaxing and stress relieving are inseparable parts of the developer’s intense and challenging daily life. Watching TV shows is one of our favourite ways to relax and “Rick and Morty” is the #1 show in the animation/science genre at the moment. We bet you like it too and if don’t this is because you have never seen it. The series follows the misadventures of cynical mad
 scientist Rick Sanchez and his good-hearted but fretful grandson Morty Smith, who split their time between domestic life and interdimensional adventures. Your goal is to create a web application, consuming the provided “Rick and Morty” api, which can be found here:
